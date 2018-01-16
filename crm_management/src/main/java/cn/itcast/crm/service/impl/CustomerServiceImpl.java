@@ -25,7 +25,10 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public List<Customer> findCustomerListByFixedAreaId(String fixedAreaId) {
-		return customerRepository.findByFixedAreaId(fixedAreaId);
+		
+		List<Customer> list = customerRepository.findByFixedAreaId(fixedAreaId);
+		
+		return list;
 	}
 
 	@Override
@@ -67,6 +70,12 @@ public class CustomerServiceImpl implements CustomerService {
 //			}
 //		}
 //		//等flush
+	}
+
+	@Override
+	public void saveCustmer(Customer customer) {
+		customerRepository.save(customer);
+		
 	}
 
 

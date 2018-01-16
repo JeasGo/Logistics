@@ -22,8 +22,6 @@
 					$("#courierForm").submit();
 				});
 			}
-		
-			
 			function doEdit(){
 				alert("修改...");
 			}
@@ -175,11 +173,11 @@
 					url : "../../courier_listPage.action",
 					idField : 'id',
 					columns : columns,
-					onDblClickRow : doDblClickRow,
-					queryParams : {
+					onDblClickRow : doDblClickRow
+					/* queryParams : {
 						name :'easyui',
 						subject: 'datagrid'
-					}
+					} */
 				});
 				
 				// 添加取派员窗口
@@ -201,7 +199,7 @@
 					}
 				});
 				
-				//查询列表
+			//查询列表
 				$("#searchBtn").click(function(){
 					//获取表单的值的json对象
 					//两种方式

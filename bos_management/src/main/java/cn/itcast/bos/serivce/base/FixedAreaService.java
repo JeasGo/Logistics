@@ -3,9 +3,11 @@ package cn.itcast.bos.serivce.base;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 
 import cn.itcast.bos.domain.base.FixedArea;
 
+@Service
 public interface FixedAreaService {
 
 	/**

@@ -11,7 +11,7 @@ import cn.itcast.bos.dao.base.FixedAreaRepository;
 import cn.itcast.bos.domain.base.FixedArea;
 import cn.itcast.bos.serivce.base.FixedAreaService;
 
-@Service
+@Service("fixedAreaService")
 @Transactional
 public class FixedAreaServiceImpl implements FixedAreaService {
 

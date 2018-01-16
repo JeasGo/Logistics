@@ -62,7 +62,7 @@
 					//关闭进度条
 					$.messager.progress('close');
 				},"json");
-				alert(id);
+				//alert(id);
 				$.post("../../fixedArea_listCustomerListByFixedAreaId.action",{"id":rows[0].id},function(data){
 					$(data).each(function(){
 						var option=$("<option value='"+this.id+"'>"+this.username+"("+this.telephone+")</option>");

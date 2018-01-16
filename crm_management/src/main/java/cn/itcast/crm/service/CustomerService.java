@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -35,4 +36,7 @@ public interface CustomerService {
 	@PUT //更新
 	public void updateFixedAreaIdByCustomerIds(@PathParam("fixedAreaId")String fixedAreaId,@PathParam("customerIds")String customerIds);
 
+	
+	@POST
+	public void saveCustmer(Customer customer);
 }

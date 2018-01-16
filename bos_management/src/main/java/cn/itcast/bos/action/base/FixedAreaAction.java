@@ -50,9 +50,9 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
 		this.rows = rows;
 	}
 	
-	private	 String  customerIds;
+	private	 String[] customerIds;
 	
-	public void setCustomerIds(String customerIds) {
+	public void setCustomerIds(String[] customerIds) {
 		this.customerIds = customerIds;
 	}
 	//没有关联定区的客户列表
@@ -72,6 +72,7 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
 	@Action("fixedArea_listCustomerListByFixedAreaId")
 	public String listCustomerListByFixedAreaId(){
 		//Webservice调用
+		//System.err.println("=============================================================================进来了!!!!!!!!!!!!!!");
 		Collection<? extends Customer> collection = WebClient.create("http://localhost:9002/crm_management/services/customerservice/customers")
 		.path("/fixedareaid")										///                     crm_management/services/customerservice/customers/fixedareaid
 		.path("/"+model.getId())
@@ -85,10 +86,14 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
 			@Result(type=REDIRECT,location="/pages/base/fixed_area.html")
 	})
 	public String associationCustomersToFixedArea(){
+		
+		//customerIds = customerIds.replaceAll(" ", "");
+		
 		//将客户id数组转换为ids，逗号分割
 		System.err.println("=================================================================="+customerIds);
 		String cIds=StringUtils.join(customerIds, ",");
 		System.err.println("====================================================================="+cIds);
+		//cIds=cIds.replaceAll(" ", "");
 		//Webservice调用
 		WebClient.create("http://localhost:9002/crm_management/services/customerservice/customers")
 				.path("/fixedareaid")

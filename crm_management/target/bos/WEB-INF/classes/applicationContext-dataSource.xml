@@ -57,6 +57,7 @@
 				<property name="generateDdl" value="true" />
 				<!-- 控制台打印SQL语句 -->
 				<property name="showSql" value="true" />
+				<property name="format_sql" value="true"></property>
 			</bean>
 		</property>
 		<!-- jpa使用hibernate实现 -->
