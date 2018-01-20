@@ -79,6 +79,8 @@
 					$.messager.alert("提示","请必须选择且只能选择一条记录","info");
 					return;
 				}
+				//给隐藏域赋值
+				$("#courierFixedAreaId").val(rows[0].id);
 				$("#courierWindow").window("open");
 			}
 	
@@ -243,7 +245,9 @@
 				
 				// 为关联快递员按钮，添加click事件
 				$("#associationCourierBtn").click(function(){
-
+					if($("#courierForm").form("validate")){
+						$("#courierForm").submit();
+					}
 				});
 			});
 		
@@ -569,14 +573,14 @@
 								<input type="hidden" name="id" id="courierFixedAreaId" />
 								<input type="text" name="courierId" class="easyui-combobox" required="true" 
 									data-options="url:'../../courier_findnoassociation.action',
-										valueField:'id',textField:'info'"/>
+										valueField:'id',textField:'name'"/>
 							</td>
 						</tr>
 						<tr>
 							<td>选择收派时间</td>
 							<td>
 								<input type="text" name="takeTimeId" class="easyui-combobox" required="true"
-									data-options="url:'../../taketime_findAll.action', 
+									data-options="url:'../../taketime_listNoDeltag.action', 
 									valueField:'id',textField:'name'" />
 							</td>
 						</tr>
